@@ -21,3 +21,11 @@ EOF
 kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-default-domain.yaml"
 
 kubectl apply -f "https://raw.githubusercontent.com/knative/serving/master/third_party/istio-latest/net-istio.yaml"
+
+
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/networking-istio 
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/webhook 
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/controller
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/autoscaler
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/activator
+kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/istio-webhook
