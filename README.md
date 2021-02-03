@@ -19,4 +19,8 @@ Instructions tailored for Openshift 4.6.x:
 
 ## [2. Running the Examples](docs/EXAMPLES.md)
 
-test
+Various examples demonstrating the following: 
+
+- Istio Service Deployment and Validation
+- Knative Serving Deployment and Validation
+- Knative Eventing Deployment and Validation
