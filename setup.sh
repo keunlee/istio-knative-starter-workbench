@@ -1,0 +1,1 @@
+sh infra/local/01-create-cluster.sh
