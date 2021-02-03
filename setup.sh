@@ -1,1 +1,1 @@
-sh infra/local/01-create-cluster.sh
+sh infra/local/00-setup.sh

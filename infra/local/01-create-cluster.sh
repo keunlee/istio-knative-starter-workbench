@@ -1,4 +1,3 @@
-rm -rf tmp/vol
 mkdir -p tmp/vol
 
 k3d cluster delete istio-kn-starter

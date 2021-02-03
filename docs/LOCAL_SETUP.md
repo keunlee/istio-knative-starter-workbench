@@ -20,6 +20,6 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [istioctl](https://istio.io/latest/docs/ops/diagnostic-tools/istioctl/)
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
-- Common Linux based CLI tools: `sed,grep,watch,cat, etc.`
+- git
 
 ## 
