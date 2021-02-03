@@ -22,4 +22,26 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - git
 
-## 
+## Install
+
+To assist in the creation of your local workbench, there is a "setup" routine made available for convenience. Please review and examine the following scripts to understand what they are and what they do. 
+
+```
+root
+├── cleanup.sh
+├── infra
+│   ├── local
+│   │   ├── 00-setup.sh
+│   │   ├── 01-create-cluster.sh
+│   │   ├── 02-deploy-istio.sh
+│   │   └── 03-deploy-knative.sh
+│   └── ocp
+│       └── 00-setup.sh
+└── setup.sh
+```
+
+To execute the creation of your environment, from the root of the repository: 
+
+```bash
+sh setup.sh local
+```
