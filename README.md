@@ -18,3 +18,5 @@ Instructions tailored for Openshift 4.6.x:
     - Deploying and configuraing Knative
 
 ## [2. Running the Examples](docs/EXAMPLES.md)
+
+test
