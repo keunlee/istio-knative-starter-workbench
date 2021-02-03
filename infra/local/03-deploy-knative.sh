@@ -22,7 +22,9 @@ kubectl apply --filename "https://github.com/knative/serving/releases/download/v
 
 kubectl apply -f "https://raw.githubusercontent.com/knative/serving/master/third_party/istio-latest/net-istio.yaml"
 
+# Install Knative Eventing -- TODO
 
+# Wait for deployments to complete
 kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/networking-istio 
 kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/webhook 
 kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/controller

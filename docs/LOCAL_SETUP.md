@@ -24,7 +24,16 @@ Make sure the following tools are installed and available on your `PATH` environ
 
 ## Install
 
-To assist in the creation of your local workbench, there is a "setup" routine made available for convenience. Please review and examine the following scripts to understand what they are and what they do. 
+### Overview
+
+To assist in the creation of your local workbench, there is a "setup" routine made available for convenience. These scripts accomplish the following tasks: 
+
+- Create a local development cluster (using K3D)
+- Deploy and configure Istio
+- Deploy and configure Knative
+- Configure DNS using `xip.io`
+
+Please review and examine the following scripts to understand what they are and what they do. 
 
 ```
 root
@@ -40,8 +49,13 @@ root
 └── setup.sh
 ```
 
+### Script Execution
+
 To execute the creation of your environment, from the root of the repository: 
 
 ```bash
 sh setup.sh local
 ```
+
+The script will take several minutes to execute. When completed successfully, you will have a cluster running Istio and Knative which you will be able to develop off of and/or run examples. 
+
