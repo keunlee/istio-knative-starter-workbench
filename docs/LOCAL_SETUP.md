@@ -64,6 +64,6 @@ The script will take several minutes to execute. When completed successfully, yo
 To clean up and completely wipe away your workbench, from the root of the repository: 
 
 ```bash
-sh cleanup.sh
+sh cleanup.sh local
 ```
 
