@@ -22,7 +22,7 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - git
 
-## Install
+## Installation
 
 ### Overview
 
@@ -58,4 +58,6 @@ sh setup.sh local
 ```
 
 The script will take several minutes to execute. When completed successfully, you will have a cluster running Istio and Knative which you will be able to develop off of and/or run examples. 
+
+### Environment Validation
 
