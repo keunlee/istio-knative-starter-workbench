@@ -13,7 +13,7 @@ kubectx k3d-istio-kn-starter
 # wait until all nodes are up and ready
 node_count=$(kubectl get nodes | grep -w 'Ready' | wc -l)
 until [ $node_count -eq "4" ]; do
-    echo "waiting for node count"
+    echo "waiting for nodes to become 'Ready'"
     node_count=$(kubectl get nodes | grep -w 'Ready' | wc -l)
 done
 
