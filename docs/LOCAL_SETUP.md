@@ -14,9 +14,12 @@ Just keep in mind, this workbench does not leverage any of those options.
 
 Make sure the following tools are installed and available on your `PATH` environment variable. 
 
-- [K3D v4.0.0](https://k3d.io/)
+- [docker](https://docs.docker.com/get-docker/)
+- [K3D v4.0.0](https://k3d.io/) 
 - [kubens/kubectx](https://github.com/ahmetb/kubectx)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [istioctl](https://istio.io/latest/docs/ops/diagnostic-tools/istioctl/)
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - Common Linux based CLI tools: `sed,grep,watch,cat, etc.`
+
+## 
