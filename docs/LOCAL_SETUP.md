@@ -12,4 +12,8 @@ You can also try to leverage other options that suit your fancy such as, but not
 
 Make sure the following tools are installed and available on your `PATH` environment variable. 
 
-- K3D
+- [K3D v4.0.0](https://k3d.io/)
+- [kubens/kubectx](https://github.com/ahmetb/kubectx)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [istioctl](https://istio.io/latest/docs/ops/diagnostic-tools/istioctl/)
+- [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
