@@ -59,5 +59,11 @@ sh setup.sh local
 
 The script will take several minutes to execute. When completed successfully, you will have a cluster running Istio and Knative which you will be able to develop off of and/or run examples. 
 
-### Environment Validation
+### Clean Up
+
+To clean up and completely wipe away your workbench, from the root of the repository: 
+
+```bash
+sh cleanup.sh
+```
 
