@@ -1,0 +1,15 @@
+# Preparing the Cluster - Local Infrastructure
+
+This setup makes a rather opinionated choice for you in determining what to run locally as your Kubernetes cluster. For our cluster, we will be leveraging Rancher's [K3D v4.0.0](https://k3d.io/), hence the scripts and instructions will be tailored for our local infrastructure. 
+
+You can also try to leverage other options that suit your fancy such as, but not limited to, the following: 
+
+- [Kind](https://kind.sigs.k8s.io/)
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [MicroK8s](https://microk8s.io/)
+
+## Pre-requisites
+
+Make sure the following tools are installed and available on your `PATH` environment variable. 
+
+- K3D
