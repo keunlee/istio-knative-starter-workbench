@@ -2,6 +2,8 @@ oc new-project bookinfo
 oc new-project knative-sandbox
 oc new-project istio-system
 
+sleep 10
+
 oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-control-plane.yaml
 oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-member-roll.yaml
 
