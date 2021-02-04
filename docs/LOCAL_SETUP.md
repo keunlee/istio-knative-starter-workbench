@@ -39,13 +39,11 @@ Please review and examine the following scripts to understand what they are and 
 root
 ├── cleanup.sh
 ├── infra
-│   ├── local
-│   │   ├── 00-setup.sh
-│   │   ├── 01-create-cluster.sh
-│   │   ├── 02-deploy-istio.sh
-│   │   └── 03-deploy-knative.sh
-│   └── ocp
-│       └── 00-setup.sh
+│   └── local
+│       ├── 00-setup.sh
+│       ├── 01-create-cluster.sh
+│       ├── 02-deploy-istio.sh
+│       └── 03-deploy-knative.sh
 └── setup.sh
 ```
 
