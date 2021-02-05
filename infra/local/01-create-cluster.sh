@@ -1,4 +1,5 @@
 # create a directory for local cluster persistent storage
+rm -rf tmp
 mkdir -p tmp/vol
 
 # delete previous cluster if exists
