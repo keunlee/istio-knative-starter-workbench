@@ -1,16 +1,16 @@
-# Preparing the Cluster - Local Infrastructure
+# Preparing the Cluster - Openshift Infrastructure
 
-This setup makes a rather opinionated choice for you in determining what to run locally as your Kubernetes cluster. For our cluster, we will be leveraging Rancher's [K3D v4.0.0](https://k3d.io/), hence the scripts and instructions will be tailored for our local infrastructure. 
+This setup leverages Operators from the Openshift Operatorhub to deploy an instance of Istio and Knative as well additionals to help you monitor your infrastructure.
 
-You can also try to leverage other options that suit your fancy such as, but not limited to, the following: 
+## Disclaimer 
 
-- [Kind](https://kind.sigs.k8s.io/)
-- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
-- [MicroK8s](https://microk8s.io/)
-
-Just keep in mind, this workbench does not leverage any of those options. 
+These setup instructions are intended for non-production environments. 
 
 ## Pre-requisites
+
+You will need an accessible Openshift Cluster >= v4.4.x.
+
+Make sure you have access to an administrative account on your cluster - full access (i.e. admin)
 
 Make sure the following tools are installed and available on your `PATH` environment variable. 
 
@@ -18,6 +18,13 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - [jq](https://stedolan.github.io/jq/)
 - git
+
+Make sure the following operators are not installed, as they will be installed on the cluster with these setup procedures. 
+- Elasticsearch Operator
+- Kiali Operator
+- Jaeger Operator
+- Red Hat Service Mesh Operator
+- Red Hat Serverless Operator
 
 ## Installation
 
@@ -40,11 +47,25 @@ Please review and examine the following scripts to understand what they are and 
 root
 ├── cleanup.sh
 ├── infra
-│   └── local
-│       ├── 00-setup.sh
-│       ├── 01-create-cluster.sh
-│       ├── 02-deploy-istio.sh
-│       └── 03-deploy-knative.sh
+│   └── ocp
+│       ├── 00-setup.sh
+│       ├── 01-setup-operator-subscriptions.sh
+│       ├── 02-deploy-openshift-service-mesh.sh
+│       ├── 03-deploy-openshift-serverless.sh
+│       ├── 99-cleanup.sh
+│       └── operators
+│           ├── crd-instances
+│           │   ├── serverless
+│           │   │   └── knative-serving.yaml
+│           │   └── service-mesh
+│           │       ├── service-mesh-control-plane.yaml
+│           │       └── service-mesh-member-roll.yaml
+│           └── subscriptions
+│               ├── elasticsearch-subscription.yaml
+│               ├── jaeger-subscription.yaml
+│               ├── kiali-subscription.yaml
+│               ├── serverless-subscription.yaml
+│               └── servicemesh-subscription.yaml
 └── setup.sh
 ```
 
@@ -53,7 +74,7 @@ root
 To execute the creation of your environment, from the root of the repository: 
 
 ```bash
-sh setup.sh local
+sh setup.sh ocp
 ```
 
 The script will take several minutes to execute. When completed successfully, you will have a cluster running Istio and Knative which you will be able to develop off of and/or run examples. 
@@ -63,6 +84,6 @@ The script will take several minutes to execute. When completed successfully, yo
 To clean up and completely wipe away your workbench, from the root of the repository: 
 
 ```bash
-sh cleanup.sh local
+sh cleanup.sh ocp
 ```
 
