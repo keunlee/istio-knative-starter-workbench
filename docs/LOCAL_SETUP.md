@@ -44,6 +44,7 @@ root
 │       ├── 01-create-cluster.sh
 │       ├── 02-deploy-istio.sh
 │       └── 03-deploy-knative.sh
+│       └── 99-cleanup.sh
 └── setup.sh
 ```
 
