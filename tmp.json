@@ -7,20 +7,20 @@
             "openshift.io/description": "",
             "openshift.io/display-name": "",
             "openshift.io/requester": "admin",
-            "openshift.io/sa.scc.mcs": "s0:c28,c2",
-            "openshift.io/sa.scc.supplemental-groups": "1000760000/10000",
-            "openshift.io/sa.scc.uid-range": "1000760000/10000"
+            "openshift.io/sa.scc.mcs": "s0:c25,c10",
+            "openshift.io/sa.scc.supplemental-groups": "1000620000/10000",
+            "openshift.io/sa.scc.uid-range": "1000620000/10000"
         },
-        "creationTimestamp": "2021-02-05T06:13:36Z",
-        "deletionTimestamp": "2021-02-05T06:22:20Z",
+        "creationTimestamp": "2021-02-05T15:05:19Z",
+        "deletionTimestamp": "2021-02-05T15:44:33Z",
         "labels": {
             "serving.knative.dev/release": "v0.16.0",
             "serving.knative.openshift.io/system-namespace": "true"
         },
         "name": "knative-serving",
-        "resourceVersion": "752142",
+        "resourceVersion": "943492",
         "selfLink": "/api/v1/namespaces/knative-serving",
-        "uid": "61d97607-8926-41ee-b9fd-a0f8fec3baae"
+        "uid": "e18eef30-0fa9-4342-b7ac-cc9caaf56707"
     },
     "spec": {
         "finalizers": [
@@ -29,36 +29,36 @@
     "status": {
         "conditions": [
             {
-                "lastTransitionTime": "2021-02-05T06:22:29Z",
+                "lastTransitionTime": "2021-02-05T15:44:41Z",
                 "message": "All resources successfully discovered",
                 "reason": "ResourcesDiscovered",
                 "status": "False",
                 "type": "NamespaceDeletionDiscoveryFailure"
             },
             {
-                "lastTransitionTime": "2021-02-05T06:22:29Z",
+                "lastTransitionTime": "2021-02-05T15:44:41Z",
                 "message": "All legacy kube types successfully parsed",
                 "reason": "ParsedGroupVersions",
                 "status": "False",
                 "type": "NamespaceDeletionGroupVersionParsingFailure"
             },
             {
-                "lastTransitionTime": "2021-02-05T06:22:29Z",
+                "lastTransitionTime": "2021-02-05T15:44:41Z",
                 "message": "All content successfully deleted, may be waiting on finalization",
                 "reason": "ContentDeleted",
                 "status": "False",
                 "type": "NamespaceDeletionContentFailure"
             },
             {
-                "lastTransitionTime": "2021-02-05T06:22:29Z",
-                "message": "Some resources are remaining: ingresses.networking.internal.knative.dev has 1 resource instances",
+                "lastTransitionTime": "2021-02-05T15:44:41Z",
+                "message": "Some resources are remaining: ingresses.networking.internal.knative.dev has 1 resource instances, routes.serving.knative.dev has 1 resource instances",
                 "reason": "SomeResourcesRemain",
                 "status": "True",
                 "type": "NamespaceContentRemaining"
             },
             {
-                "lastTransitionTime": "2021-02-05T06:22:29Z",
-                "message": "Some content in the namespace has finalizers remaining: ingresses.networking.internal.knative.dev in 1 resource instances",
+                "lastTransitionTime": "2021-02-05T15:44:41Z",
+                "message": "Some content in the namespace has finalizers remaining: ingresses.networking.internal.knative.dev in 1 resource instances, routes.serving.knative.dev in 1 resource instances",
                 "reason": "SomeFinalizersRemain",
                 "status": "True",
                 "type": "NamespaceFinalizersRemaining"

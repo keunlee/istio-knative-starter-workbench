@@ -8,23 +8,15 @@ These setup instructions are intended for non-production environments.
 
 ## Pre-requisites
 
-You will need an accessible Openshift Cluster >= v4.4.x.
+An accessible Openshift Cluster **>= v4.4.x**
 
-Make sure you have access to an administrative account on your cluster - full access (i.e. admin)
+Administrative access to the cluster - full access (i.e. admin)
 
 Make sure the following tools are installed and available on your `PATH` environment variable. 
-
 - [oc cli](https://developers.redhat.com/openshift/command-line-tools)
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - [jq](https://stedolan.github.io/jq/)
 - git
-
-Make sure the following operators are NOT installed, as they will be installed on the cluster with these setup procedures. 
-- Elasticsearch Operator
-- Kiali Operator
-- Jaeger Operator
-- Red Hat Service Mesh Operator
-- Red Hat Serverless Operator
 
 ## Installation
 
@@ -72,6 +64,8 @@ root
 ### Login to Openshift (oc CLI)
 
 Login to the cluster using the `oc` cli tool. Do this before executing any of the scripts. 
+
+Make sure the user you are logging in as has administrative privileges.
 
 If using username/password:
 

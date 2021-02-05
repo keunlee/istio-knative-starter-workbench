@@ -8,7 +8,7 @@ oc new-project knative-sandbox
 oc new-project istio-system
 
 # wait a minute for the project to initialize
-sleep 60
+sleep 10
 
 # deploy an istio service mesh control plane
 oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-control-plane.yaml
