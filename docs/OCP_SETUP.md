@@ -69,6 +69,22 @@ root
 └── setup.sh
 ```
 
+### Login to Openshift (oc CLI)
+
+Login to the cluster using the `oc` cli tool. Do this before executing any of the scripts. 
+
+If using username/password:
+
+```bash
+oc login -u admin -p <your-password>
+```
+
+If using a token you've obtained from the openshift console: 
+
+```bash
+ oc login --token=1o7R7SWQvYagcngvromOwGCbyN844EJs-NjWfmfSKJo --server=https://my-ocp-cluster:6443
+```
+
 ### Script Execution
 
 To execute the creation of your environment, from the root of the repository: 
