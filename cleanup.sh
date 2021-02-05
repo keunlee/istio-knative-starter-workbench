@@ -1,7 +1,6 @@
 case $1 in
     local)
-        k3d cluster delete istio-kn-starter
-        rm -rf tmp
+        sh infra/local/99-cleanup.sh
         ;;
     ocp)
         sh infra/ocp/99-cleanup.sh

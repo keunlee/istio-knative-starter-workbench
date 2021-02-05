@@ -19,7 +19,7 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [jq](https://stedolan.github.io/jq/)
 - git
 
-Make sure the following operators are not installed, as they will be installed on the cluster with these setup procedures. 
+Make sure the following operators are NOT installed, as they will be installed on the cluster with these setup procedures. 
 - Elasticsearch Operator
 - Kiali Operator
 - Jaeger Operator

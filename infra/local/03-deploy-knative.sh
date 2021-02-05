@@ -4,6 +4,9 @@ export KNATIVE_VERSION="0.19.0"
 kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-crds.yaml"
 kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-core.yaml"
 
+# Switch namespace
+kubens knative-serving
+
 kubectl label namespace knative-serving istio-injection=enabled
 
 cat <<EOF | kubectl apply -f -
