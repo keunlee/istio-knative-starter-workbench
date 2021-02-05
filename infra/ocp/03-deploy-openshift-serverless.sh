@@ -22,7 +22,7 @@ EOF
 oc new-project knative-serving
 
 # wait a minute for the project to initialize
-sleep 60
+sleep 10
 
 # deploy knative service
 oc apply -f infra/ocp/operators/crd-instances/serverless/knative-serving.yaml

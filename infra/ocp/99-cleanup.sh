@@ -21,30 +21,55 @@ function wait_for_zero_resource_count() {
     done    
 }
 
-# delete knative serving instances, resources, and projects
-project_namespace=$(oc get project knative-serving --ignore-not-found)
-if [ -z "$project_namespace" ]
+# this function purges all resources, including CRD instances, in a namespace
+function purge_namespace() {
+    project_status=$(oc get project $1 --ignore-not-found)
+    if [ -z "$project_status" ]
+    then
+        echo "$1 does not exist"
+    else
+        oc project $1
+        oc delete ksvc --all
+        oc delete "$(oc api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//')" --all
+        wait_for_zero_resource_count
+    fi
+}
+
+# this function uninstalls a specified operator
+function uninstall_operator() {
+    value=$(get_operator_csv $1)
+    oc delete subscription $1 -n openshift-operators
+    oc delete clusterserviceversion $value -n openshift-operators    
+}
+
+# delete bookinfo resources
+purge_namespace "bookinfo"
+
+# delete sandbox resources
+purge_namespace "knative-sandbox"
+
+# delete knative serving instances and resources
+project_status=$(oc get project knative-serving --ignore-not-found)
+if [ -z "$project_status" ]
 then
-    echo "$project_namespace does not exist"
+    echo "knative-serving does not exist"
 else
     oc project knative-serving
     oc delete ingresses.networking.internal.knative.dev kn-cli
     oc delete knativeservings.operator.knative.dev knative-serving
     oc delete po -l app=storage-version-migration
-
     wait_for_zero_resource_count
 fi
 
-# delete service mesh crd instances, resources, and projects
-project_namespace=$(oc get project istio-system --ignore-not-found)
-if [ -z "$project_namespace" ]
+# delete service mesh crd instances and resources
+project_status=$(oc get project istio-system --ignore-not-found)
+if [ -z "$project_status" ]
 then
-    echo "$project_namespace does not exist"
+    echo "istio-system does not exist"
 else
     oc project istio-system
     oc delete -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-member-roll.yaml
     oc delete -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-control-plane.yaml
-
     wait_for_zero_resource_count
 fi
 
@@ -55,25 +80,13 @@ oc delete project knative-serving
 oc delete project istio-system
 
 # remove the operators we installed earlier
-value=$(get_operator_csv "serverless-operator ")
-oc delete subscription serverless-operator  -n openshift-operators
-oc delete clusterserviceversion $value -n openshift-operators
+oc project openshift-operators
 
-value=$(get_operator_csv "servicemeshoperator ")
-oc delete subscription servicemeshoperator  -n openshift-operators
-oc delete clusterserviceversion $value -n openshift-operators
-
-value=$(get_operator_csv "kiali-ossm")
-oc delete subscription kiali-ossm -n openshift-operators
-oc delete clusterserviceversion $value -n openshift-operators
-
-value=$(get_operator_csv "jaeger-product")
-oc delete subscription jaeger-product -n openshift-operators
-oc delete clusterserviceversion $value -n openshift-operators
-
-value=$(get_operator_csv "elasticsearch-operator")
-oc delete subscription elasticsearch-operator -n openshift-operators
-oc delete clusterserviceversion $value -n openshift-operators
+uninstall_operator "serverless-operator"
+uninstall_operator "servicemeshoperator"
+uninstall_operator "kiali-ossm"
+uninstall_operator "jaeger-product"
+uninstall_operator "elasticsearch-operator"
 
 oc delete service maistra-admission-controller -n openshift-operators
 oc delete service admission-server-service -n openshift-operators
