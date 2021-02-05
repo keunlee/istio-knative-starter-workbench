@@ -28,8 +28,9 @@ then
     echo "$project_namespace does not exist"
 else
     oc project knative-serving
+    oc delete ingresses.networking.internal.knative.dev kn-cli
+    oc delete knativeservings.operator.knative.dev knative-serving
     oc delete po -l app=storage-version-migration
-    oc delete -f infra/ocp/operators/crd-instances/serverless/knative-serving.yaml
 
     wait_for_zero_resource_count
 fi

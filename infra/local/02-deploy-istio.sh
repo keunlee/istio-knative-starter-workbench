@@ -1,6 +1,9 @@
 # Deploy Istio
 istioctl install --skip-confirmation
 
+# Switch namespace
+kubens istio-system
+
 # Deploy Istio Addons
 mkdir -p tmp/repositories/istio
 git clone https://github.com/istio/istio.git tmp/repositories/istio
