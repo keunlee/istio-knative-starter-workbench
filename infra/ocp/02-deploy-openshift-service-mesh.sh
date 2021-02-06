@@ -19,10 +19,10 @@ oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-member-r
 sleep 120
 
 # wait for operator deployments to complete
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/grafana
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istio-egressgateway
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istio-ingressgateway
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istiod-basic 
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/jaeger
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/kiali
-kubectl -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/prometheus
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/grafana
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istio-egressgateway
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istio-ingressgateway
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/istiod-basic 
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/jaeger
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/kiali
+oc -n istio-system wait --for=condition=Available  --timeout=360s deployment.apps/prometheus
