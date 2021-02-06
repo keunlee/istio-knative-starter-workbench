@@ -1,7 +1,14 @@
 # this function retrieves an operator's 'currentCSV' field value
 # necessary for identifying the installed operator and it's version
 function get_operator_csv() {
-    oc get subscription $1 -n openshift-operators -o yaml | grep -i currentCSV | sed -e 's/^[ \t]*//' |  sed 's/^currentCSV://' |  sed -e 's/^[ \t]*//'
+    oc get subscriptions.operators.coreos.com $1 -n openshift-operators -o yaml | grep -i currentCSV | sed -e 's/^[ \t]*//' |  sed 's/^currentCSV://' |  sed -e 's/^[ \t]*//'
+}
+
+# this function uninstalls a specified operator
+function uninstall_operator() {
+    value=$(get_operator_csv $1)
+    oc delete subscriptions.operators.coreos.com $1 -n openshift-operators
+    oc delete clusterserviceversion $value -n openshift-operators    
 }
 
 # this function is a wait method which breaks when the number of resources in a namespace has reached zero
@@ -33,13 +40,6 @@ function purge_namespace() {
         oc delete "$(oc api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//')" --all
         wait_for_zero_resource_count
     fi
-}
-
-# this function uninstalls a specified operator
-function uninstall_operator() {
-    value=$(get_operator_csv $1)
-    oc delete subscription $1 -n openshift-operators
-    oc delete clusterserviceversion $value -n openshift-operators    
 }
 
 # delete bookinfo resources

@@ -31,11 +31,11 @@ oc apply -f infra/ocp/operators/crd-instances/serverless/knative-serving.yaml
 sleep 120
 
 # wait for knative deployments to deploy
-kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/activator
-kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/autoscaler
-kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/autoscaler-hpa     
-kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/controller
-kubectl -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/webhook
+oc -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/activator
+oc -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/autoscaler
+oc -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/autoscaler-hpa     
+oc -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/controller
+oc -n knative-serving wait --for=condition=Available  --timeout=360s deployment.apps/webhook
 
 # Create a network policy that permits traffic flow from Knative system Pods to Knative service
 oc label namespace knative-serving serving.knative.openshift.io/system-namespace=true
