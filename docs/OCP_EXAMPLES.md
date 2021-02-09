@@ -56,12 +56,14 @@ oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destinati
 ```yaml
 # obtain the bookinfo application host
 # i.e. bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local
-BOOKINFO_HOST=$(oc -n istio-system get routes bookinfo-bookinfo-gateway-vgns2 -o jsonpath='{.status.ingress[0].host}')
+BOOKINFO_HOST=$(oc get routes -n istio-system -l maistra.io/gateway-name=bookinfo-gateway -o jsonpath='{..status.ingress[0].host}')
 
 # print the bookinfo productpage url
 # i.e. http://bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local/productpage
 echo http://$BOOKINFO_HOST/productpage
 ```
+
+Navigate to the output of the "echo" statement, which should be the bookinfo productpage. 
 
 ### Validation
 
