@@ -60,6 +60,10 @@ The script will take several minutes to execute. When completed successfully, yo
 
 ### Clean Up
 
+This clean up procedure will do the following in respective order: 
+
+- delete the entire local K3D cluster
+
 To clean up and completely wipe away your workbench, from the root of the repository: 
 
 ```bash

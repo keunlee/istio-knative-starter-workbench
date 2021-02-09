@@ -1,8 +1,8 @@
 export KNATIVE_VERSION="0.19.0"
 
 # Install Knative Serving
-kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-crds.yaml"
-kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-core.yaml"
+kubectl apply -f "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-crds.yaml"
+kubectl apply -f "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-core.yaml"
 
 # Switch namespace
 kubens knative-serving
@@ -21,7 +21,7 @@ spec:
 EOF
 
 # Configure the magic xip.io DNS name
-kubectl apply --filename "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-default-domain.yaml"
+kubectl apply -f "https://github.com/knative/serving/releases/download/v$KNATIVE_VERSION/serving-default-domain.yaml"
 
 kubectl apply -f "https://raw.githubusercontent.com/knative/serving/master/third_party/istio-latest/net-istio.yaml"
 
