@@ -11,12 +11,12 @@ Various examples demonstrating the following:
 Grab the **Maistra** version of Istio. Do this by cloning the following repository: 
 
 ```bash
-git clone https://github.com/maistra/istio.git
+git clone https://github.com/maistra/istio.git tmp/repositories/maistra/istio
 ```
 
-For this example, let us assume that you've cloned this repository to: 
+For this example, let us assume that you've cloned this repository to the root of this repository to the following relative path: 
 
-`/tmp/repositories/maistra/istio`
+`tmp/repositories/maistra/istio`
 
 **Maistra** is the RH version of Istio tailored for OpenShift installation. More information about Maistra can be found [here](https://maistra.io/docs/ossm-vs-community.html).
 
@@ -45,10 +45,10 @@ oc project bookinfo
 oc apply -f examples/istio/bookinfo/bookinfo.yaml
 
 # deploy default gateway and service uri
-oc apply -f /tmp/repositories/maistra/istio/samples/bookinfo/networking/bookinfo-gateway.yaml
+oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/bookinfo-gateway.yaml
 
 # deploy default default destination rules
-oc apply -f /tmp/repositories/maistra/istio/samples/bookinfo/networking/destination-rule-all.yaml
+oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
 ### Validation
