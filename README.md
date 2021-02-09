@@ -14,7 +14,7 @@ Instructions and scripts for putting together a local development environment, d
 - Deploying and configuring Istio
 - Deploying and configuraing Knative
 
-## [Running the Examples on Local infrastructure](docs/OCP_EXAMPLES.md)
+## [Examples on Local infrastructure](docs/OCP_EXAMPLES.md)
 
 Various examples demonstrating the following: 
 
@@ -31,7 +31,7 @@ Instructions tailored for Openshift 4.6.x:
 - Deploying and configuring Istio
 - Deploying and configuraing Knative
 
-## [Running the Examples on Openshift infrastructure](docs/LOCAL_EXAMPLES.md)
+## [Examples on Openshift infrastructure](docs/OCP_EXAMPLES.md)
 
 Various examples demonstrating the following: 
 
