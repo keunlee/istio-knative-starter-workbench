@@ -4,7 +4,7 @@ This workbench project details the procedures to get you setup and running Istio
 
 In addition to setup, this workbench also details various examples to demonstrate the usage of Istio and Knative
 
-# Local Infrastructure using K3D
+# I. Local Infrastructure using K3D
 
 ## [Preparing the Cluster - Local Infrastructure](docs/LOCAL_SETUP.md)
 
@@ -22,7 +22,7 @@ Various examples demonstrating the following:
 - Knative Serving Deployment and Validation
 - Knative Eventing Deployment and Validation
 
-# Openshift 4.x Infrastructure
+# II. Openshift 4.x Infrastructure
 
 ## [Preparing the Cluster - Openshift Infrastructure](docs/OCP_SETUP.md)
 
