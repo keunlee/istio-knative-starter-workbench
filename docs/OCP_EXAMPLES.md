@@ -26,7 +26,7 @@ Sidecar injection in Maistra requires an opt-in. This opt-in is accepted by addi
 
 From the cloned Maistra repository, edit the following file: `samples/bookinfo/platform/kube/bookinfo.yaml`, so that you've opted in for accepting sidecar injection by enabling the `sidecar.istio.io/inject` annotation. 
 
-This is already been illustrated in the included example: [`examples/istio/bookinfo/bookinfo.yaml`](examples/istio/bookinfo/bookinfo.yaml)
+This is already been illustrated in the included example: [`examples/istio/bookinfo/bookinfo.yaml`](/examples/istio/bookinfo/bookinfo.yaml)
 
 
 **(2)**
