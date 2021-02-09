@@ -14,6 +14,10 @@ Grab the **Maistra** version of Istio. Do this by cloning the following reposito
 git clone https://github.com/maistra/istio.git
 ```
 
+For this example, let us assume that you've cloned this repository to: 
+
+`/tmp/repositories/maistra/istio`
+
 **Maistra** is the RH version of Istio tailored for OpenShift installation. More information about Maistra can be found [here](https://maistra.io/docs/ossm-vs-community.html).
 
 ### A Note on Enabling Automatic Sidecar Injection
@@ -29,8 +33,23 @@ From the cloned Maistra repository, edit the following file: `samples/bookinfo/p
 This is already been illustrated in the included example: [`examples/istio/bookinfo/bookinfo.yaml`](/examples/istio/bookinfo/bookinfo.yaml)
 
 
-**(2)**
+**(2)** Deploy Bookinfo Example
 
+From the root of the repository: 
+
+```bash
+# switch to the bookinfo project
+oc project bookinfo
+
+# deploy the services, service accounts, and deployments for the Bookinfo sample.
+oc apply -f examples/istio/bookinfo/bookinfo.yaml
+
+# deploy default gateway and service uri
+oc apply -f /tmp/repositories/maistra/istio/samples/bookinfo/networking/bookinfo-gateway.yaml
+
+# deploy default default destination rules
+oc apply -f /tmp/repositories/maistra/istio/samples/bookinfo/networking/destination-rule-all.yaml
+```
 
 ### Validation
 
