@@ -91,7 +91,7 @@ The script will take several minutes to execute. When completed successfully, yo
 
 ### Clean Up
 
-This clean up will do the following in respective order: 
+This clean up procedure will do the following in respective order: 
 
 - purge all resources in the `bookinfo` namespace
 - purge all resources in the `knative-sandbox` namespace
