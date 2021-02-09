@@ -6,9 +6,9 @@ Various examples demonstrating the following:
 - Knative Serving Deployment and Validation
 - Knative Eventing Deployment and Validation
 
-## Service Mesh (Istio) - Bookinfo Sample Application
+## I. Service Mesh (Istio) - Bookinfo Sample Application
 
-Grab the **Maistra** version of Istio. Do this by cloning the following repository: 
+Grab the **Maistra** version of Istio. Do this by cloning the following repository:
 
 ```bash
 git clone https://github.com/maistra/istio.git tmp/repositories/maistra/istio
@@ -26,7 +26,7 @@ Sidecar injection in Maistra requires an opt-in. This opt-in is accepted by addi
 
 ### Bookinfo Application Deployment
 
-**(1)** Enable Automatic Sidecar Injection (Optional)
+**(1)** Enable Automatic Sidecar Injection
 
 From the cloned Maistra Istio repository, edit the following file: `samples/bookinfo/platform/kube/bookinfo.yaml`, so that you've opted in for accepting sidecar injection by enabling the `sidecar.istio.io/inject` annotation. 
 
@@ -47,7 +47,7 @@ oc apply -f examples/istio/bookinfo/bookinfo.yaml
 # deploy default gateway and service uri
 oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/bookinfo-gateway.yaml
 
-# deploy default default destination rules
+# deploy default destination rules
 oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
