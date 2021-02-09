@@ -91,6 +91,20 @@ The script will take several minutes to execute. When completed successfully, yo
 
 ### Clean Up
 
+This clean up will do the following in respective order: 
+
+- purge all resources in the `bookinfo` namespace
+- purge all resources in the `knative-sandbox` namespace
+- purge all resources in the `knative-serving` namespace
+- purge all resources in the `istio-system` namespace
+- delete the aformentioned namespaces/projects
+- uninstall and delete the following operator subscriptions: 
+    - "serverless-operator"
+    - "servicemeshoperator"
+    - "kiali-ossm"
+    - "jaeger-product"
+    - "elasticsearch-operator"
+
 To clean up and completely wipe away your workbench, from the root of the repository: 
 
 ```bash
