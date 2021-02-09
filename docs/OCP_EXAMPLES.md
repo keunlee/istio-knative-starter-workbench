@@ -28,9 +28,9 @@ Sidecar injection in Maistra requires an opt-in. This opt-in is accepted by addi
 
 **(1)** Enable Automatic Sidecar Injection (Optional)
 
-From the cloned Maistra repository, edit the following file: `samples/bookinfo/platform/kube/bookinfo.yaml`, so that you've opted in for accepting sidecar injection by enabling the `sidecar.istio.io/inject` annotation. 
+From the cloned Maistra Istio repository, edit the following file: `samples/bookinfo/platform/kube/bookinfo.yaml`, so that you've opted in for accepting sidecar injection by enabling the `sidecar.istio.io/inject` annotation. 
 
-This is already been illustrated in the included example: [`examples/istio/bookinfo/bookinfo.yaml`](/examples/istio/bookinfo/bookinfo.yaml)
+TL;DR This has already been illustrated in the included example: [`examples/istio/bookinfo/bookinfo.yaml`](/examples/istio/bookinfo/bookinfo.yaml). 
 
 
 **(2)** Deploy Bookinfo Example
@@ -49,6 +49,18 @@ oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/bookinfo-
 
 # deploy default default destination rules
 oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destination-rule-all.yaml
+```
+
+**(3)** View Bookinfo Application
+
+```yaml
+# obtain the bookinfo application host
+# i.e. bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local
+BOOKINFO_HOST=$(oc -n istio-system get routes bookinfo-bookinfo-gateway-vgns2 -o jsonpath='{.status.ingress[0].host}')
+
+# print the bookinfo productpage url
+# i.e. http://bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local/productpage
+echo http://$BOOKINFO_HOST/productpage
 ```
 
 ### Validation
