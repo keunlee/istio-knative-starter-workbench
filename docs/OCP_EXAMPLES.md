@@ -104,7 +104,7 @@ Your selections should look similar to the following:
 
 ![Screenshot from 2021-02-09 23-38-35](https://user-images.githubusercontent.com/61749/107469778-ff8d0900-6b2f-11eb-829a-bff81cc29079.png)
 
-**(2)** Use version v1 for all routes
+**(2)** Use version v1 of all deployed services
 
 ```bash
 # update the network traffic rules
@@ -118,7 +118,7 @@ Observe the network traffic in Kiali
 
 ![Screenshot from 2021-02-09 23-48-31](https://user-images.githubusercontent.com/61749/107470655-5c3cf380-6b31-11eb-8269-5a2841071d26.png)
 
-**(3)** Split network traffice 80-20 between v1 and v2 for the "reviews" service. 
+**(3)** Split network traffic 80-20 between version v1 and v2 for the "reviews" service. 
 
 ```bash
 # update the network traffic rules
@@ -128,7 +128,7 @@ oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-review
 hey -z 15s -c 10 $BOOKINFO_URI
 ```
 
-Observe the traffic in Kiali
+Observe the network traffic in Kiali
 
 ![Screenshot from 2021-02-09 23-53-03](https://user-images.githubusercontent.com/61749/107471003-fa30be00-6b31-11eb-9f8c-331ac0c382ab.png)
 
