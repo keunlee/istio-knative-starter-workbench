@@ -59,7 +59,7 @@ oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destinati
 
 **(3)** View Bookinfo Application
 
-```yaml
+```bash
 # obtain the bookinfo application host
 # i.e. bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local
 BOOKINFO_HOST=$(oc get routes -n istio-system -l maistra.io/gateway-name=bookinfo-gateway -o jsonpath='{..status.ingress[0].host}')
@@ -103,6 +103,20 @@ From the "Display" dropdown:
 Your selections should look similar to the following: 
 
 ![Screenshot from 2021-02-09 23-38-35](https://user-images.githubusercontent.com/61749/107469778-ff8d0900-6b2f-11eb-829a-bff81cc29079.png)
+
+**(2)** Use version v1 for all routes
+
+```bash
+# update the network traffic rules to go through version v1 of all deployed components
+oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
+
+# create traffic
+hey -z 15s -c 10 $BOOKINFO_URI
+```
+
+Observe the traffic in Kiali
+
+![Screenshot from 2021-02-09 23-48-31](https://user-images.githubusercontent.com/61749/107470655-5c3cf380-6b31-11eb-8269-5a2841071d26.png)
 
 
 ## References
