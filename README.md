@@ -14,7 +14,7 @@ Instructions and scripts for putting together a local development environment, d
 - Deploying and configuring Istio
 - Deploying and configuraing Knative
 
-## [Examples on Local infrastructure](docs/OCP_EXAMPLES.md)
+## [Examples on Local infrastructure](docs/LOCAL_EXAMPLES.md)
 
 Various examples demonstrating the following: 
 
