@@ -107,8 +107,22 @@ Your selections should look similar to the following:
 **(2)** Use version v1 for all routes
 
 ```bash
-# update the network traffic rules to go through version v1 of all deployed components
+# update the network traffic rules
 oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
+
+# create traffic
+hey -z 15s -c 10 $BOOKINFO_URI
+```
+
+Observe the network traffic in Kiali
+
+![Screenshot from 2021-02-09 23-48-31](https://user-images.githubusercontent.com/61749/107470655-5c3cf380-6b31-11eb-8269-5a2841071d26.png)
+
+**(3)** Split network traffice 80-20 between v1 and v2 for the "reviews" service. 
+
+```bash
+# update the network traffic rules
+oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-reviews-80-20.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
@@ -116,7 +130,7 @@ hey -z 15s -c 10 $BOOKINFO_URI
 
 Observe the traffic in Kiali
 
-![Screenshot from 2021-02-09 23-48-31](https://user-images.githubusercontent.com/61749/107470655-5c3cf380-6b31-11eb-8269-5a2841071d26.png)
+![Screenshot from 2021-02-09 23-53-03](https://user-images.githubusercontent.com/61749/107471003-fa30be00-6b31-11eb-9f8c-331ac0c382ab.png)
 
 
 ## References
