@@ -6,6 +6,12 @@ Various examples demonstrating the following:
 - Knative Serving Deployment and Validation
 - Knative Eventing Deployment and Validation
 
+## Pre-requisites
+
+Make sure the following tools are installed and available on your `PATH` environment variable. 
+
+- [hey](https://github.com/rakyll/hey)
+
 ## I. Service Mesh (Istio) - Bookinfo Sample Application
 
 Grab the **Maistra** version of Istio. Do this by cloning the following repository:
@@ -58,17 +64,30 @@ oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/destinati
 # i.e. bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local
 BOOKINFO_HOST=$(oc get routes -n istio-system -l maistra.io/gateway-name=bookinfo-gateway -o jsonpath='{..status.ingress[0].host}')
 
+BOOKINFO_URI=http://$BOOKINFO_HOST/productpage
+
 # print the bookinfo productpage url
 # i.e. http://bookinfo-bookinfo-gateway-vgns2-istio-system.apps.private-cluster.local/productpage
-echo http://$BOOKINFO_HOST/productpage
+echo $BOOKINFO_URI
 ```
 
 Navigate to the output of the "echo" statement, which will be the bookinfo productpage, and should look like the following: 
 
 ![Screenshot from 2021-02-09 22-53-08](https://user-images.githubusercontent.com/61749/107466459-ab7f2600-6b29-11eb-9c3a-ecbc53945d48.png)
 
-
 ### Validation
+
+**(1)** Open Kiali
+
+```bash
+# obtain the kiali host 
+# i.e. https://kiali-istio-system.apps.private-cluster.local/
+KIALI_URI=https://$(oc get routes -n istio-system -l app=kiali -o jsonpath='{..status.ingress[0].host}')
+
+echo $KIALI_URI
+```
+
+
 
 ## References
 
