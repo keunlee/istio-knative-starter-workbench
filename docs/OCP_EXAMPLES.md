@@ -77,6 +77,8 @@ Navigate to the output of the "echo" statement, which will be the bookinfo produ
 
 ### Validation
 
+To validate our service mesh, we will be leveraging [Kiali](https://kiali.io/) and a load generating CLI tool called [hey](https://github.com/rakyll/hey)
+
 **(1)** Open Kiali
 
 ```bash
@@ -87,6 +89,20 @@ KIALI_URI=https://$(oc get routes -n istio-system -l app=kiali -o jsonpath='{..s
 echo $KIALI_URI
 ```
 
+Navigate to the output of the "echo" statement, which will be the location of Kiali. 
+
+Select "Graph" from the left menu. 
+
+Select "bookinfo" in the Namespace dropdown
+
+From the "Display" dropdown: 
+- Select "Requests Percentage"
+- Check "Traffic Animation"
+- Leave all other selections as is
+
+Your selections should look similar to the following: 
+
+![Screenshot from 2021-02-09 23-38-35](https://user-images.githubusercontent.com/61749/107469778-ff8d0900-6b2f-11eb-829a-bff81cc29079.png)
 
 
 ## References
