@@ -81,6 +81,7 @@ From a second terminal window:
 ```bash
 # create a localhost proxy to the kiali host
 # it will be accessible at: http://localhost:20001/kiali
+# ctrl-c to terminate the proxy
 istioctl dashboard kiali
 ```
 
@@ -103,7 +104,7 @@ Your selections should look similar to the following:
 
 ```bash
 # update the network traffic rules
-kubectl apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
+kubectl apply -f tmp/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
@@ -117,7 +118,7 @@ Observe the network traffic in Kiali
 
 ```bash
 # update the network traffic rules
-kubectl apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-reviews-80-20.yaml
+kubectl apply -f tmp/istio/samples/bookinfo/networking/virtual-service-reviews-80-20.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
