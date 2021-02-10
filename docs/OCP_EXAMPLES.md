@@ -63,7 +63,10 @@ BOOKINFO_HOST=$(oc get routes -n istio-system -l maistra.io/gateway-name=bookinf
 echo http://$BOOKINFO_HOST/productpage
 ```
 
-Navigate to the output of the "echo" statement, which should be the bookinfo productpage. 
+Navigate to the output of the "echo" statement, which will be the bookinfo productpage, and should look like the following: 
+
+![Screenshot from 2021-02-09 22-53-08](https://user-images.githubusercontent.com/61749/107466459-ab7f2600-6b29-11eb-9c3a-ecbc53945d48.png)
+
 
 ### Validation
 
