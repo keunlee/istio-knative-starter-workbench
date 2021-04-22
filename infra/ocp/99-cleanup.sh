@@ -1,7 +1,7 @@
 # this function retrieves an operator's 'currentCSV' field value
 # necessary for identifying the installed operator and it's version
 function get_operator_csv() {
-    oc get subscriptions.operators.coreos.com $1 -n openshift-operators -o yaml | grep -i currentCSV | sed -e 's/^[ \t]*//' |  sed 's/^currentCSV://' |  sed -e 's/^[ \t]*//'
+    oc get subscriptions.operators.coreos.com $1 -n openshift-operators -o yaml | grep -i currentCSV | tail -1 | sed -e 's/^[ \t]*//' | sed 's/^currentCSV://' | sed -e 's/^[ \t]*//'
 }
 
 # this function uninstalls a specified operator
@@ -22,8 +22,19 @@ function wait_for_zero_resource_count() {
         sleep 5
 
         ((iter--))
+
         if [[ $iter -eq 0 ]]; then
             break
+        fi
+
+        if [[ $project_resource_count -eq "1" ]]; then
+            item_kind=$(oc get all -o json | jq -r '.items' | jq '.[].kind')
+            test_value=\"VMImportConfig\"
+            sleep 5
+
+            if [ $item_kind = $test_value ]; then
+                break
+            fi
         fi
     done    
 }
@@ -57,8 +68,8 @@ else
     oc project knative-serving
     oc delete ingresses.networking.internal.knative.dev kn-cli
     oc delete knativeservings.operator.knative.dev knative-serving
-    oc delete po -l app=storage-version-migration
-    wait_for_zero_resource_count
+    oc delete po -l app=storage-version-migration-serving
+    purge_namespace "knative-serving"
 fi
 
 # delete service mesh crd instances and resources
@@ -70,13 +81,14 @@ else
     oc project istio-system
     oc delete -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-member-roll.yaml
     oc delete -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-control-plane.yaml
-    wait_for_zero_resource_count
+    purge_namespace "knative-serving"
 fi
 
 # delete unused namespaces/projects
 oc delete project bookinfo
 oc delete project knative-sandbox
 oc delete project knative-serving
+oc delete project knative-eventing
 oc delete project istio-system
 
 # remove the operators we installed earlier
