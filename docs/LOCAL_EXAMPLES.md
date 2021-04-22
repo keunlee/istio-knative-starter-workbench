@@ -1,4 +1,4 @@
-# Examples on Openshift infrastructure
+# Examples on Local infrastructure
 
 Various examples demonstrating the following: 
 
@@ -100,14 +100,7 @@ Your selections should look similar to the following:
 
 ![Screenshot from 2021-02-09 23-38-35](https://user-images.githubusercontent.com/61749/107469778-ff8d0900-6b2f-11eb-829a-bff81cc29079.png)
 
-**(2)** Use version v1 of all deployed services
-
-```bash
-# update the network traffic rules
-kubectl apply -f tmp/repositories/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
-
-# create traffic
-hey -z 15s -c 10 $BOOKINFO_URI
+**(2)** Use version v1 of all deployed services@Stephen Nimmo , I could use some of your thoughts as I see you publish often
 ```
 
 Observe the network traffic in Kiali
