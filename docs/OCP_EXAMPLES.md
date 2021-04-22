@@ -108,7 +108,7 @@ Your selections should look similar to the following:
 
 ```bash
 # update the network traffic rules
-oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
+oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
@@ -122,7 +122,7 @@ Observe the network traffic in Kiali
 
 ```bash
 # update the network traffic rules
-oc apply -f tmp/maistra/istio/samples/bookinfo/networking/virtual-service-reviews-80-20.yaml
+oc apply -f tmp/repositories/maistra/istio/samples/bookinfo/networking/virtual-service-reviews-80-20.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
@@ -135,4 +135,4 @@ Observe the network traffic in Kiali
 
 ## References
 
-https://docs.openshift.com/container-platform/4.6/service_mesh/v1x/prepare-to-deploy-applications-ossm.html#ossm-tutorial-bookinfo-overview_deploying-applications-ossm-v1x
+https://docs.openshift.com/container-platform/4.7/service_mesh/v1x/prepare-to-deploy-applications-ossm.html#ossm-tutorial-bookinfo-overview_deploying-applications-ossm-v1x

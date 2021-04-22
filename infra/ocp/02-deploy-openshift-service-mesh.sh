@@ -16,13 +16,13 @@ oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-control-
 oc apply -f infra/ocp/operators/crd-instances/service-mesh/service-mesh-member-roll.yaml
 
 # give it a few minutes
-sleep 120
+sleep 240
 
 # wait for operator deployments to complete
 oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/grafana
-oc -n istio-system wait --for=condition=Available  --timeout=820s deployment.apps/istio-egressgateway
-oc -n istio-system wait --for=condition=Available  --timeout=920s deployment.apps/istio-ingressgateway
-oc -n istio-system wait --for=condition=Available  --timeout=1020s deployment.apps/istiod-basic 
-oc -n istio-system wait --for=condition=Available  --timeout=1120s deployment.apps/jaeger
-oc -n istio-system wait --for=condition=Available  --timeout=1220s deployment.apps/prometheus
-oc -n istio-system wait --for=condition=Available  --timeout=3000s deployment.apps/kiali
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/istio-egressgateway
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/istio-ingressgateway
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/istiod-basic 
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/jaeger
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/prometheus
+oc -n istio-system wait --for=condition=Available  --timeout=720s deployment.apps/kiali
