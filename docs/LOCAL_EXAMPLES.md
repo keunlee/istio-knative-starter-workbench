@@ -104,7 +104,7 @@ Your selections should look similar to the following:
 
 ```bash
 # update the network traffic rules
-kubectl apply -f tmp/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
+kubectl apply -f tmp/repositories/istio/samples/bookinfo/networking/virtual-service-all-v1.yaml
 
 # create traffic
 hey -z 15s -c 10 $BOOKINFO_URI
