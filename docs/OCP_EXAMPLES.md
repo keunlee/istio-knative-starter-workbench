@@ -12,7 +12,7 @@ Make sure the following tools are installed and available on your `PATH` environ
 
 - [hey](https://github.com/rakyll/hey)
 
-## I. Service Mesh (Istio) - Bookinfo Sample Application
+## I. Service Mesh (Istio) Example
 
 Grab the **Maistra** version of Istio. Do this by cloning the following repository:
 
