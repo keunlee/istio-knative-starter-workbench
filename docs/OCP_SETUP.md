@@ -8,7 +8,7 @@ These setup instructions are intended for non-production environments.
 
 ## Pre-requisites
 
-An accessible Openshift Cluster **>= v4.4.x**
+An accessible Openshift Cluster **>= v4.7.x**
 
 Administrative access to the cluster - full access (i.e. admin)
 
@@ -17,6 +17,14 @@ Make sure the following tools are installed and available on your `PATH` environ
 - [kn (Knative CLI)](https://knative.dev/docs/install/install-kn/)
 - [jq](https://stedolan.github.io/jq/)
 - git
+
+Make sure the following operators are NOT already installed in the `openshift-operators` namespace/project: 
+
+- "serverless-operator"
+- "servicemeshoperator"
+- "kiali-ossm"
+- "jaeger-product"
+- "elasticsearch-operator"
 
 ## Installation
 

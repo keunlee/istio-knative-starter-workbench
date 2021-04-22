@@ -12,10 +12,10 @@ oc apply -f infra/ocp/operators/subscriptions/serverless-subscription.yaml
 sleep 60
 
 # wait for operator deployments to complete
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/elasticsearch-operator 
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/jaeger-operator 
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/kiali-operator
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/istio-operator  
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/knative-operator
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/knative-openshift-ingress
-oc -n openshift-operators wait --for=condition=Available  --timeout=360s deployment.apps/knative-openshift
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/elasticsearch-operator 
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/jaeger-operator 
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/kiali-operator
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/istio-operator  
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/knative-operator
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/knative-openshift-ingress
+oc -n openshift-operators wait --for=condition=Available  --timeout=720s deployment.apps/knative-openshift
