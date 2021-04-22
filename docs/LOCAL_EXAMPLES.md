@@ -26,7 +26,7 @@ For this example, let us assume that you've cloned this repository to the root o
 
 ### Bookinfo Application Deployment
 
-**(2)** Deploy Bookinfo Example
+**(1)** Deploy Bookinfo Example
 
 From the root of the repository: 
 
@@ -50,7 +50,7 @@ kubectl apply -f tmp/repositories/istio/samples/bookinfo/networking/bookinfo-gat
 kubectl apply -f tmp/repositories/istio/samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
-**(3)** View Bookinfo Application
+**(2)** View Bookinfo Application
 
 ```bash
 # obtain the ingress host
