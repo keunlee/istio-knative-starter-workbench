@@ -127,3 +127,7 @@ hey -z 15s -c 10 $BOOKINFO_URI
 Observe the network traffic in Kiali
 
 ![Screenshot from 2021-02-09 23-53-03](https://user-images.githubusercontent.com/61749/107471003-fa30be00-6b31-11eb-9f8c-331ac0c382ab.png)
+
+## II. Serverless (KNative) Example
+
+TODO
