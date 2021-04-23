@@ -22,7 +22,7 @@ Various examples demonstrating the following:
 - Knative Serving Deployment and Validation
 - Knative Eventing Deployment and Validation
 
-# II. Openshift 4.x Infrastructure
+# II. Openshift 4.7.x Infrastructure
 
 ## [Preparing the Cluster - Openshift Infrastructure](docs/OCP_SETUP.md)
 
