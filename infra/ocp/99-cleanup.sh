@@ -101,5 +101,4 @@ uninstall_operator "jaeger-product"
 uninstall_operator "elasticsearch-operator"
 
 oc delete service maistra-admission-controller -n openshift-operators
-oc delete service admission-server-service -n openshift-operators
 oc delete daemonsets.apps istio-node -n openshift-operators
